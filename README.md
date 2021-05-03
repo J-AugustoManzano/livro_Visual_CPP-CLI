@@ -1,1 +1,3 @@
-# livro_Visual_CPP-CLI
+# Livro: Visual C++/CLI: Guia de introdução e desenvolvimento
+
+O livro fornece a estudantes e profissionais da área os recursos essenciais à programação na linguagem C++/CLI com o Visual Studio Express 2012 for Windows Desktop, na plataforma .NET. Apresenta o modo CLR Console Application, além de abranger algumas noções do modo gráfico. Foca na programação CUI e trata da programação GUI, em conformidade com a norma ECMA-372. Estruturada em dez capítulos, aborda diversas formas de programação: sequencial, com tomada de decisões, com laços, baseada em arranjos, com estruturas de dados, com funções e métodos, com arquivos, orientada a objetos e em modo gráfico.
