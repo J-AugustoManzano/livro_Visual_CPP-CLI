@@ -1,0 +1,19 @@
+// C07EX19.cpp
+
+#include "stdafx.h"
+using namespace System;
+
+int main()
+{
+
+  Console::WriteLine(Math::Exp(3.4));             // =  29,964...
+  Console::WriteLine(Math::Exp(1));               // =   2,718...
+
+  Console::WriteLine(Math::Log(Math::Exp(10)));   // =  10,000...
+  Console::WriteLine(Math::Log(2.0));             // =   0,693...
+
+  Console::WriteLine(Math::Log10(3));             // =   0,477...
+  Console::WriteLine(Math::Log10(Math::Exp(10))); // =   4,342...
+
+  return 0;
+}

@@ -1,0 +1,86 @@
+// C06EX02.CPP
+
+#include "stdafx.h"
+using namespace System;
+
+value struct CAD_ALUNO
+  {
+    String^ NOME;
+    array<Single>^ NOTA;
+    Single MEDIA;
+  };
+
+int main()
+{
+
+  // Definicao de variaveis e configuracao do ambiente
+
+  array<CAD_ALUNO>^ ALUNO = gcnew array<CAD_ALUNO>(8);
+  Int32 I, J;
+  Single SOMA_NT, SOMA_MD, MEDIA_GP; 
+  ConsoleKeyInfo TECLA;
+
+  // Rotina para a entrada dos nomes e notas
+
+  Console::WriteLine("Cadastro de alunos");
+  Console::WriteLine();
+  for (I = 0; I <= 7; I++)
+    {
+      Console::Write("Informe o {0, 2}o. nome: ", I + 1);
+      ALUNO[I].NOTA = gcnew array<Single>(4);  
+      ALUNO[I].NOME = Console::ReadLine();
+      Console::WriteLine();
+      Console::Write("Entre as notas:");
+      Console::WriteLine();
+      for (J = 0; J <= 3; J++)
+        {
+          Console::Write("Nota: {0} = ", J + 1);
+          ALUNO[I].NOTA[J] = Single::Parse(Console::ReadLine());
+        }
+      Console::WriteLine();
+    }
+
+
+// Processamento do calculo das medias
+
+  SOMA_MD = 0;
+  for (I = 0; I <= 7; I++)
+    {
+      SOMA_NT = 0;
+      for (J = 0; J <= 3; J++)
+        SOMA_NT = SOMA_NT + ALUNO[I].NOTA[J];
+      ALUNO[I].MEDIA = SOMA_NT / 4;
+      SOMA_MD = SOMA_MD + ALUNO[I].MEDIA;
+    }
+  MEDIA_GP = SOMA_MD / 8;
+  Console::WriteLine();
+  Console::WriteLine("Tecle <Enter> para próxima tela ...");
+  do
+    {
+      TECLA = Console::ReadKey(true);
+    }
+  while (TECLA.Key != ConsoleKey::Enter);
+	
+  // Apresentacao da tabela nome/notas/media
+
+  Console::Clear();
+  Console::SetCursorPosition(33,0); // coluna 33 linha 0
+  Console::Write("Relatorio Geral");
+  Console::SetCursorPosition(0,2);
+  Console::Write("Aluno");
+  Console::SetCursorPosition(40,2);
+  Console::Write("Media");
+  for (I = 0; I <= 7; I++)
+    {
+      Console::SetCursorPosition(0, I + 5);
+      Console::Write(ALUNO[I].NOME);
+      Console::SetCursorPosition(40, I + 5);
+      Console::Write(ALUNO[I].MEDIA);
+    }
+  Console::WriteLine();
+  Console::WriteLine();
+  Console::Write("Media Geral = {0, 8}", MEDIA_GP);
+  Console::WriteLine();
+  Console::WriteLine();
+  return 0;
+}
